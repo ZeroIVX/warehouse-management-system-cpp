@@ -1,0 +1,43 @@
+# ---------------------------------------------------------------------------
+#  换行与编码约定
+#
+#  项目仅支持 Windows，且批处理对换行极其敏感（LF 会导致 cmd 解析错乱），
+#  因此统一按 CRLF 检出。
+# ---------------------------------------------------------------------------
+* text=auto eol=crlf
+
+# 批处理：必须是 CRLF
+*.bat text eol=crlf
+
+# C/C++ 源码：CRLF，保证在 Visual Studio 中行号与调试信息一致
+*.c     text eol=crlf
+*.cpp   text eol=crlf
+*.h     text eol=crlf
+*.hpp   text eol=crlf
+
+# 文档与配置
+*.md        text eol=crlf
+*.txt       text eol=crlf
+*.csv       text eol=crlf
+*.yml       text eol=crlf
+*.drawio    text eol=crlf
+CMakeLists.txt text eol=crlf
+
+# ---------------------------------------------------------------------------
+#  二进制文件（禁止任何换行/编码转换）
+# ---------------------------------------------------------------------------
+*.exe   binary
+*.obj   binary
+*.pdb   binary
+*.lib   binary
+*.png   binary
+*.jpg   binary
+*.ico   binary
+*.dat   binary
+
+# ---------------------------------------------------------------------------
+#  v1 源码为 UTF-8 with BOM（由原始 GBK 文件转换而来），
+#  需保留 BOM 以便 MSVC 正确识别源文件编码，且不可加 /utf-8 编译。
+#  该信息同时记录在 v1-legacy/README.md 中。
+# ---------------------------------------------------------------------------
+v1-legacy/src/warehouse_v1.cpp text eol=crlf
